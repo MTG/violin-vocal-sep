@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fdf5e6; /* Light cream background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8b0000; /* Deep red header */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 5px solid #ffd700; /* Gold border */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White content background */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.example-container {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #8b0000;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffe4e1, #ffd700); /* Light red to gold gradient */
+}
+
+.example-container h3 {
+    color: #8b0000;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.audio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.audio-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.audio-container {
+    flex: 1;
+    min-width: 200px; /* Minimum width to prevent excessive shrinking */
+    text-align: center;
+}
+
+.audio-container h4 {
+    font-size: 1.2em;
+    color: #8b0000;
+    margin-bottom: 5px;
+}
+
+audio {
+    width: 100%; /* Take full width of the container */
+    max-width: 100%; /* Ensure it doesn’t exceed the container */
+    margin: 5px auto;
+    display: block;
+}
+
+footer {
+    background-color: #8b0000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
