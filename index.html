@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web demo for ICASSP 2025 separation paper.</title>
+    <title>Web demo for ICASSP 2025 workshop paper.</title>
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Web demo with audio examples "A Learned Loss to Leverage Large Multi-stem Datasets with Bleeding for Music Source Separation"</h1>
+        <h1>Web demo with audio examples "Disentangling Overlapping Sources: Improving Vocal and Violin Separation in Carnatic Music"</h1>
     </header>
 
     <div class="container">
         <p>
-            This is a web demo for the paper "A Learned Loss to Leverage Large Multi-stem Datasets with Bleeding for Music Source Separation".
+            This is a web demo for the paper "Disentangling Overlapping Sources: Improving Vocal and Violin Separation in Carnatic Music".
             The paper has been submitted to the 2025 International Conference on Acoustics, Speech, and Signal Processing (ICASSP).
 
             <br><br>
-            <b>Abstract:</b> Separating the individual sources in a music mixture is a challenging problem currently being addressed using deep
-            learning models. Compiling clean multi-track stems to train these systems is complex and expensive compared to gathering these from 
-            live performances. However, stems recorded in live shows often have source bleeding between tracks, which degrades model quality. 
-            Using Carnatic music as a use case, we leverage large amounts of multi-track data with bleeding to pre-train a separation network. 
-            Then, we propose a CNN-based bleeding estimator trained with artificially generated bleeding on a small set of clean studio-recorded 
-            Carnatic music stems. This approach is used to fine-tune the pre-trained separation model, improving its ability to handle real-world 
-            bleeding in multi-track recordings. We investigate further the optimal amount of clean data required for the bleeding estimator's 
-            training and the usage of an out-of-domain dataset. Code and audio examples are made available.
+            <b>Abstract:</b> Separating the individual elements in a music mixture is an important tool in computational musicology, allowing for an improved analysis of music repertoires. In the context 
+            of Carnatic Music, such task remains a challenge given the suboptimal generalization of existing music source separation systems to this style. Although multi-stem Carnatic recordings exist, these are mostly collected from the mixing console in live
+performances, therefore the individual stems are not clean enough
+to follow regular supervised training. Furthermore, there is a
+strong melodic correlation between the singing voice and the
+violin, as the later follows the melody sung by the singer during
+the performance. Existing strategies to address such problem
+struggle with source quality and only consider vocals. In this
+work, we extend these efforts and achieve improved separation
+while extending the separation targets to the violin, an important
+source in the repertoire, and therefore cover the separation of
+the most common melodic components in Carnatic Music. Code
+and models are made available through compiam..
 
             <br><br>
             All audios in this demo are from the CMC dataset. These are not copyrighted, but please do not share this demo or the displayed audios,
