@@ -1,11 +1,517 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web demo for ICASSP 2025 separation paper.</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <h1>Hello, World!</h1>
-</body>
+    <header>
+        <h1>Web demo with audio examples "A Learned Loss to Leverage Large Multi-stem Datasets with Bleeding for Music Source Separation"</h1>
+    </header>
 
+    <div class="container">
+        <p>
+            This is a web demo for the paper "A Learned Loss to Leverage Large Multi-stem Datasets with Bleeding for Music Source Separation".
+            The paper has been submitted to the 2025 International Conference on Acoustics, Speech, and Signal Processing (ICASSP).
+
+            <br><br>
+            <b>Abstract:</b> Separating the individual sources in a music mixture is a challenging problem currently being addressed using deep
+            learning models. Compiling clean multi-track stems to train these systems is complex and expensive compared to gathering these from 
+            live performances. However, stems recorded in live shows often have source bleeding between tracks, which degrades model quality. 
+            Using Carnatic music as a use case, we leverage large amounts of multi-track data with bleeding to pre-train a separation network. 
+            Then, we propose a CNN-based bleeding estimator trained with artificially generated bleeding on a small set of clean studio-recorded 
+            Carnatic music stems. This approach is used to fine-tune the pre-trained separation model, improving its ability to handle real-world 
+            bleeding in multi-track recordings. We investigate further the optimal amount of clean data required for the bleeding estimator's 
+            training and the usage of an out-of-domain dataset. Code and audio examples are made available.
+
+            <br><br>
+            All audios in this demo are from the CMC dataset. These are not copyrighted, but please do not share this demo or the displayed audios,
+            as these are only for the purpose of this demo.
+        </p>
+    </div>
+
+    <!-- REPRESENTING TABLE 1 -->
+    <!-- REPRESENTING TABLE 1 -->
+    <!-- REPRESENTING TABLE 1 -->
+    <!-- REPRESENTING TABLE 1 -->
+    <!-- REPRESENTING TABLE 1 -->
+    <!-- REPRESENTING TABLE 1 -->
+    <div class="container">
+        <h2>Comparing our complete system with baselines</h2>
+        <p>
+            This comparison relates to Table 1 in the paper. The goal is to perceptually compare our complete system, trained with all the 
+            data available (full Saraga for the separator, and full CMC for the bleeding estimator), with the baselines.
+        </p>
+
+
+        <!-- EXAMPLE 1 -->
+        <div class="example-container">
+            <h3>Example 1</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Baseline 1, Saraga separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/saraga_only_300k_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Baseline 2, MUSDB18HQ separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/musdb_separator.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Saraga pre-training, CMC bleeding estimator</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/finetuning_shaale_discriminator_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>ColdDiffSep, trained only using Saraga</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/cold_diff_model_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 2 -->
+        <div class="example-container">
+            <h3>Example 2</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Baseline 1, Saraga separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/saraga_only_300k_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Baseline 2, MUSDB18HQ separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/musdb_separator.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Saraga pre-training, CMC bleeding estimator</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/finetuning_shaale_discriminator_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>ColdDiffSep, trained only using Saraga</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/cold_diff_model_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 3 -->
+        <div class="example-container">
+            <h3>Example 3</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Baseline 1, Saraga separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/saraga_only_300k_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Baseline 2, MUSDB18HQ separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/musdb_separator.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Saraga pre-training, CMC bleeding estimator</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/finetuning_shaale_discriminator_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>ColdDiffSep, trained only using Saraga</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/cold_diff_model_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 4 -->
+        <div class="example-container">
+            <h3>Example 4</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Baseline 1, Saraga separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/saraga_only_300k_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Baseline 2, MUSDB18HQ separator pre-training</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/musdb_separator.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Saraga pre-training, CMC bleeding estimator</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/finetuning_shaale_discriminator_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>ColdDiffSep, trained only using Saraga</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/cold_diff_model_prediction.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Comparing different sizes of the clean multi-stem dataset</h2>
+        <p>
+            This comparison relates to Table 2 in the paper. The goal is to perceptually compare the separation ability of our complete system
+            trained with different small clean sets, both from the CMC and from MUSDB18HQ as well, aiming at studying how robust our system is to
+            the domain shift.
+        </p>
+
+        <h3>
+            <b>Note:</b> all compared systems here have the separator pre-trained with Saraga. Therefore, we are perceptually comparing solely
+            the effect of the data used to train our bleeding estimator.
+        </h3>
+
+        <!-- EXAMPLE 1 -->
+        <div class="example-container">
+            <h3>Example 1</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>1-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/shaale_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/shaale_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>1-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/musdb_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_1/musdb_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 2 -->
+        <div class="example-container">
+            <h3>Example 2</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>1-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/shaale_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/shaale_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>1-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/musdb_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_2/musdb_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 3 -->
+        <div class="example-container">
+            <h3>Example 3</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>1-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/shaale_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/shaale_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>1-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/musdb_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_3/musdb_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE 4 -->
+        <div class="example-container">
+            <h3>Example 4</h3>
+            <div class="audio-group">
+                <!-- First Row: MIX and VOCALS -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>Mix</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/mix.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>Vocals</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/vocals.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Second Row: Models -->
+                <div class="audio-row">
+                    <div class="audio-container">
+                        <h4>1-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/shaale_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track CMC</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/shaale_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>1-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/musdb_1.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <h4>15-track MUSDB18HQ</h4>
+                        <audio controls>
+                            <source src="audio/chunk_4/musdb_15.wav" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Carnatic Music Research. Music Technology Group, Universitat Pompeu Fabra, Barcelona.</p>
+    </footer>
+</body>
 </html>
